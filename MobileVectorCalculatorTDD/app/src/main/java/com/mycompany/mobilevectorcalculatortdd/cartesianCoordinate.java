@@ -37,7 +37,7 @@ public class cartesianCoordinate {
 
     }
 
-    public double vectorMult (Vector inputVector1,Vector inputVector2){
+    public static double vectorMult (Vector inputVector1,Vector inputVector2){
 
         x = ((inputVector1.x*inputVector2.y)-(inputVector1.y*inputVector2.x));
 

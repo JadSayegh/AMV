@@ -21,12 +21,30 @@ public class SecondActivity extends ActionBarActivity {
 
         // set it to empty (in case this is the second time someone is calculating a new vector value
         // we want to make sure it is empty)
-        vectorAddAnswer.setText(String.format("hello"));
+        vectorAddAnswer.setText(String.format(""));
 
-        Vector vectorSum = (Vector) intent.getSerializableExtra("vector_sum");
-        // fill it with the vectorAdd value we calculated
-        vectorAddAnswer.setText(String.format("The sum of the 3 vectors: (%.2f, %.2f)",
-                vectorSum.x, vectorSum.y));
+        String action = intent.getStringExtra("action");
+        if (action.equals("vector_add")) {
+            Vector vectorSum = (Vector) intent.getSerializableExtra("result");
+            // fill it with the vectorAdd value we calculated
+            vectorAddAnswer.setText(String.format("The sum of the 3 vectors: (%.2f, %.2f)",
+                    vectorSum.x, vectorSum.y));
+        } else if (action.equals("vector_prod")) {
+            Double vectorProd = intent.getExtras().getDouble("result");
+
+            // fill it with the vectorAdd value we calculated
+            vectorAddAnswer.setText(String.format("The vector product of the 2 vectors: (%.2f",
+                    vectorProd));
+
+        } else if (action.equals("scalar_prod")) {
+            Double scalarProd = intent.getExtras().getDouble("result");
+            // fill it with the vectorAdd value we calculated
+            vectorAddAnswer.setText(String.format("The scalar product of the 2 vectors: (%.2f",
+                    scalarProd));
+
+        }
+
+
     }
 
 

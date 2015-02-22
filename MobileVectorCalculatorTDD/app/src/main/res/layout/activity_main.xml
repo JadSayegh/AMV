@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_weight="1"
-            android:inputType="numberSigned"
+            android:inputType="numberSigned|numberDecimal"
             android:hint="@string/vector1x1_hint" > </EditText>
 
         <EditText
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_weight="1"
-            android:inputType="numberSigned"
+            android:inputType="numberSigned|numberDecimal"
             android:hint="@string/vector1y1_hint"></EditText>
     </LinearLayout>
 
@@ -51,12 +51,14 @@
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_weight="1"
+            android:inputType="numberSigned|numberDecimal"
             android:hint="@string/vector2x2_hint"></EditText>
         <EditText
             android:id="@+id/y2"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_weight="1"
+            android:inputType="numberSigned|numberDecimal"
             android:hint="@string/vector2y2_hint"></EditText>
     </LinearLayout>
 
@@ -73,14 +75,23 @@
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_weight="1"
+            android:inputType="numberSigned|numberDecimal"
             android:hint="@string/vector3x3_hint"></EditText>
         <EditText
             android:id="@+id/y3"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_weight="1"
+            android:inputType="numberSigned|numberDecimal"
             android:hint="@string/vector3y3_hint"></EditText>
     </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/cartesian_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/v3">
+
 
     <RadioButton android:id="@+id/vector_addition"
         android:layout_width="wrap_content"
@@ -107,6 +118,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    </RadioGroup>
 
     <Button
         android:onClick="sendMessage1"
@@ -114,11 +126,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/button_send1"
-        android:layout_below="@+id/vector_addition"
+        android:layout_alignBottom="@+id/cartesian_radio"
         android:layout_alignRight="@+id/v3"
         android:layout_alignEnd="@+id/v3" />
-
-
 
 
 </RelativeLayout>
