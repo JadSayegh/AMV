@@ -134,4 +134,109 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
+
+    public void sendMessage2(View view) {
+
+        Vector vectorRes;
+
+        double v1r1;
+        double v1a1;
+        double v2r2;
+        double v2a2;
+
+
+
+        Intent intent = new Intent(this, AlternateSecondActivity.class);
+
+        //Take the user input values for Vector 1
+        EditText editText1 = (EditText) findViewById(R.id.px1);
+        String m1 = editText1.getText().toString();
+        EditText editText2 = (EditText) findViewById(R.id.py1);
+        String m2 = editText2.getText().toString();
+
+
+        if (m1.isEmpty() || m2.isEmpty()) {
+            // One of the text boxes has invalid value
+            if (m1.isEmpty()) {
+                editText1.setError("Invalid input");
+            }
+            if (m2.isEmpty()) {
+                editText2.setError("Invalid input");
+            }
+
+            return;
+        } else {
+            v1r1 = Double.valueOf(m1);
+            v1a1 = Double.valueOf(m2);
+        }
+        //Take the user input values for Vector 2
+        EditText editText3 = (EditText) findViewById(R.id.px2);
+        String m3 = editText3.getText().toString();
+        EditText editText4 = (EditText) findViewById(R.id.py2);
+        String m4 = editText4.getText().toString();
+
+        if (m3.isEmpty() || m4.isEmpty()) {
+            // One of the text boxes has invalid value
+            return;
+        } else {
+            v2r2 = Double.valueOf(m3);
+            v2a2 = Double.valueOf(m4);
+        }
+
+        RadioGroup rg = (RadioGroup)  findViewById(R.id.cartesian_radio);
+        int selID = rg.getCheckedRadioButtonId();
+
+        double scalarRes;
+        switch (selID) {
+            case R.id.vector_addition:
+                intent.putExtra("action", "vector_add");
+                //           intent.putDouble
+                //Take the user input values for Vector 3
+                EditText editText5 = (EditText) findViewById(R.id.px3);
+                String m5 = editText5.getText().toString();
+
+                EditText editText6 = (EditText) findViewById(R.id.py3);
+                String m6 = editText6.getText().toString();
+
+                if (m5.isEmpty() && m6.isEmpty()) {
+                    vectorRes = cartesianCoordinate.vectorAdd(PolarCoordinate.polarToCartesian(new PolarVector(v1r1, v1a1)),
+                            PolarCoordinate.polarToCartesian(new PolarVector(v2r2, v2a2)));
+                } else if (m5.isEmpty() || m6.isEmpty()) {
+                    // One of the text boxes has invalid value
+                    return;
+                } else {
+                    double v3r3 = Double.valueOf(m5);
+                    double v3a3 = Double.valueOf(m6);
+                    vectorRes = cartesianCoordinate.vectorAdd(PolarCoordinate.polarToCartesian(new PolarVector(v1r1, v1a1)),
+                            PolarCoordinate.polarToCartesian(new PolarVector(v2r2, v2a2)),
+                            PolarCoordinate.polarToCartesian(new PolarVector(v3r3, v3a3)));
+
+                }
+
+                intent.putExtra("result", PolarCoordinate.cartesianToPolar(vectorRes));
+                break;
+            case R.id.scalar_product:
+                intent.putExtra("action", "scalar_prod");
+                scalarRes = cartesianCoordinate.scalarMult(PolarCoordinate.polarToCartesian(new PolarVector(v1r1, v1a1)),
+                        PolarCoordinate.polarToCartesian(new PolarVector(v2r2, v2a2)));
+                intent.putExtra("result", scalarRes);
+                break;
+            case R.id.vector_product:
+                intent.putExtra("action", "vector_prod");
+                scalarRes = cartesianCoordinate.vectorMult(PolarCoordinate.polarToCartesian(new PolarVector(v1r1, v1a1)),
+                        PolarCoordinate.polarToCartesian(new PolarVector(v2r2, v2a2)));
+                intent.putExtra("result", scalarRes);
+                break;
+            case -1:
+                // Wrong ID
+                break;
+        }
+
+
+        startActivity(intent);
+
+
+    }
+
+
 }
