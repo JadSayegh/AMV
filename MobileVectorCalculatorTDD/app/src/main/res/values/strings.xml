@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Mobile Vector Calculator</string>
+
+    <string name="cartesian_coordinate">Cartesian Coordinate</string>
+    <string name="vector1x1_hint">Vector1: x value</string>
+    <string name="vector1y1_hint">Vector1: y value</string>
+    <string name="vector2x2_hint">Vector2: x value</string>
+    <string name="vector2y2_hint">Vector2: y value</string>
+    <string name="vector3x3_hint">Vector3: x value</string>
+    <string name="vector3y3_hint">Vector3: y value</string>
+    <string name="button_send1">Calculate</string>
+    <string name="vector_addition">Vector Addition</string>
+    <string name="scalar_product">Scalar Product of two vectors</string>
+    <string name="vector_product">Vector Product of two vectors</string>
+    <string name="title_activity_second_activity">SecondActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_second">SecondActivity</string>
+</resources>
