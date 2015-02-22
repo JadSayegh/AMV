@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+    android:id="@+id/v1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="2"
+    android:orientation="horizontal" >
+
+    <EditText
+        android:id="@+id/x1"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:hint="Vector1: x value"></EditText>
+    <EditText
+        android:id="@+id/y1"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:hint="Vector1: y value"></EditText>
+       </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_below="@id/v1" >
+
+        <EditText
+            android:id="@+id/x2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:hint="Vector2: x value"></EditText>
+        <EditText
+            android:id="@+id/y2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:hint="Vector2: y value"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_below="@id/v2" >
+
+        <EditText
+            android:id="@+id/x3"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:hint="Vector3: x value"></EditText>
+        <EditText
+            android:id="@+id/y3"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:hint="Vector3: y value"></EditText>
+    </LinearLayout>
+
+
+    <RadioGroup android:id="@+id/tip_radio"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/v3">
+
+        <RadioButton android:id="@+id/tip_radio_low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tip_low"
+            android:checked="true"/>
+
+        <RadioButton android:id="@+id/tip_radio_mid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tip_mid"/>
+
+        <RadioButton android:id="@+id/tip_radio_high"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tip_high"/>
+    </RadioGroup>
+
+    <Button
+        android:text="@string/button_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sendMessage"
+        android:layout_below="@id/tip_radio"
+        android:layout_alignParentRight="true"/>
+
+
+
+</RelativeLayout>

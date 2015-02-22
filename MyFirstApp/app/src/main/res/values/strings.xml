@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MOBILE VECTOR CALCULATOR</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="button_send">Calculate</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_display_message">"Calculation"</string>
+    <string name="tip_low">Vector Addition</string>
+    <string name="tip_mid">Scalar Product of two vectors</string>
+    <string name="tip_high">Vector Product of two vectors</string>
+
+</resources>
