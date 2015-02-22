@@ -1,4 +1,4 @@
-package com.mycompany.mobilevectorcalculatortdd;
+package com.ecse428.jad.vector;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -64,7 +64,7 @@ public class MainActivity extends ActionBarActivity {
         String m2 = editText2.getText().toString();
 
 
-    if (m1.isEmpty() || m2.isEmpty()) {
+    if (m1.length() == 0 || m2.length() == 0) {
         // One of the text boxes has invalid value
         return;
     } else {
@@ -77,7 +77,7 @@ public class MainActivity extends ActionBarActivity {
         EditText editText4 = (EditText) findViewById(R.id.y2);
         String m4 = editText4.getText().toString();
 
-        if (m3.isEmpty() || m4.isEmpty()) {
+        if (m3.length() == 0 || m4.length() == 0) {
             // One of the text boxes has invalid value
             return;
         } else {
@@ -100,27 +100,27 @@ public class MainActivity extends ActionBarActivity {
                 EditText editText6 = (EditText) findViewById(R.id.y3);
                 String m6 = editText6.getText().toString();
 
-                if (m5.isEmpty() && m6.isEmpty()) {
-                    vectorRes = cartesianCoordinate.vectorAdd(new Vector(v1x1,v1y1), new Vector(v2x2,v2y2));
-                } else if (m5.isEmpty() || m6.isEmpty()) {
+                if (m5.length() == 0 && m6.length() == 0) {
+                    vectorRes = vectorAdd(new Vector(v1x1,v1y1), new Vector(v2x2,v2y2));
+                } else if (m5.length() == 0 || m6.length() == 0) {
                     // One of the text boxes has invalid value
                     return;
                 } else {
                     double v3x3 = Double.valueOf(m5);
                     double v3y3 = Double.valueOf(m6);
-                    vectorRes = cartesianCoordinate.vectorAdd(new Vector(v1x1,v1y1), new Vector(v2x2,v2y2), new Vector(v3x3,v3y3));
+                    vectorRes = vectorAdd(new Vector(v1x1,v1y1), new Vector(v2x2,v2y2), new Vector(v3x3,v3y3));
 
                 }
                 intent.putExtra("result", vectorRes);
                 break;
             case R.id.scalar_product:
                 intent.putExtra("action", "scalar_prod");
-                scalarRes = cartesianCoordinate.scalarMult(new Vector(v1x1,v1y1), new Vector(v2x2,v2y2));
+                scalarRes = scalarMult(new Vector(v1x1,v1y1), new Vector(v2x2,v2y2));
                 intent.putExtra("result", scalarRes);
                 break;
             case R.id.vector_product:
                 intent.putExtra("action", "vector_prod");
-                scalarRes = cartesianCoordinate.vectorMult(new Vector(v1x1,v1y1), new Vector(v2x2,v2y2));
+                scalarRes = vectorMult(new Vector(v1x1,v1y1), new Vector(v2x2,v2y2));
                 intent.putExtra("result", scalarRes);
                 break;
             case -1:
@@ -132,6 +132,33 @@ public class MainActivity extends ActionBarActivity {
         startActivity(intent);
 
 
+    }
+
+
+
+    public static Vector vectorAdd(Vector v1, Vector v2){
+        return cartesianCoordinate.vectorAdd(v1, v2);
+    }
+
+    public static Vector vectorAdd(Vector v1, Vector v2, Vector v3){
+        return cartesianCoordinate.vectorAdd(v1, v2, v3);
+    }
+
+    public static Double scalarMult(Vector v1, Vector v2){
+        return cartesianCoordinate.scalarMult(v1, v2);
+    }
+
+    public static Double vectorMult(Vector v1, Vector v2){
+        return cartesianCoordinate.vectorMult(v1, v2);
+    }
+
+    public static PolarVector cartToPolar(Vector v){
+        return cartesianCoordinate.cartToPolar(v);
+
+    }
+
+    public static Vector polarToCart(PolarVector v){
+        return cartesianCoordinate.polarToCart(v);
     }
 
 }
