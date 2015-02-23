@@ -1,4 +1,5 @@
-package com.mycompany.mobilevectorcalculatortdd;
+package com.ecse428.jad.vector;
+
 
 import java.lang.Math;
 
@@ -9,6 +10,7 @@ public class PolarCoordinate {
 
 
     public static Vector polarToCartesian(PolarVector pv){
+        if(pv==null) return null;
         Vector v = new Vector(0,0);
         v.x = pv.rval*Math.cos(Math.toRadians(pv.theta));
         v.y = pv.rval*Math.sin(Math.toRadians(pv.theta));
@@ -17,9 +19,10 @@ public class PolarCoordinate {
 
 
     public static PolarVector cartesianToPolar(Vector v){
+        if(v==null) return null;
         PolarVector pv = new PolarVector(0,0);
         pv.rval = Math.sqrt(Math.pow(v.x,2) + Math.pow(v.y, 2));
-        pv.theta = Math.toDegrees(Math.tan(v.y/v.x));
+        pv.theta = Math.toDegrees(Math.atan2(v.y, v.x));
         return pv;
     }
 }
