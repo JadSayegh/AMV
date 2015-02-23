@@ -24,6 +24,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mycompany.mobilevectorcalculatortdd.MainActivity" />
         </activity>
+        <activity
+            android:name=".AlternateSecondActivity"
+            android:label="@string/title_activity_alternate_second" >
+        </activity>
     </application>
 
 </manifest>
